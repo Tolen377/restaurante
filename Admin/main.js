@@ -22,6 +22,32 @@ $(document).ready(function(){
              "sProcessing":"Procesando...",
         }
     });
+
+
+    tablaPlatillos = $("#tablaPlatillos").DataTable({
+        "columnDefs":[{
+         "targets": -1,
+         "data":null,
+         "defaultContent": "<div class='text-center'><div class='btn-group'><button class='btn btn-primary btnEditar'>Editar</button><button class='btn btn-danger btnBorrar'>Borrar</button></div></div>"  
+        }],
+         
+     "language": {
+             "lengthMenu": "Mostrar _MENU_ registros",
+             "zeroRecords": "No se encontraron resultados",
+             "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+             "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+             "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+             "sSearch": "Buscar:",
+             "oPaginate": {
+                 "sFirst": "Primero",
+                 "sLast":"Último",
+                 "sNext":"Siguiente",
+                 "sPrevious": "Anterior"
+              },
+              "sProcessing":"Procesando...",
+         }
+     });
+
     
 $("#btnNuevo").click(function(){
     $("#formPersonas").trigger("reset");
@@ -79,8 +105,7 @@ $("#formPersonas").submit(function(e){
     e.preventDefault();    
     nombre = $.trim($("#nombre").val());
     email = $.trim($("#email").val());
-    password = $.trim($("#password").val()); 
-    console.log(id)  
+    password = $.trim($("#password").val());  
     $.ajax({
         url: "./bd/crud.php",
         type: "POST",
@@ -99,6 +124,47 @@ $("#formPersonas").submit(function(e){
     });
     $("#modalCRUD").modal("hide");    
     
-});    
-    
+});   
+
+$("#btnNuevoPlatillo").click(function(){
+    $("#formPlatillos").trigger("reset");
+    $(".modal-header").css("background-color", "#1cc88a");
+    $(".modal-header").css("color", "white");
+    $(".modal-title").text("Nuevo Platillo");            
+    $("#modalCRUD").modal("show");        
+    id=null;
+    opcion = 1; //alta
+}); 
+
+
+$('#formPlatillos').submit(function(e){
+	console.log("Si entro");
+	e.preventDefault()
+	$.ajax({
+		url:'./bd/Ajax.php?action=altaPlatillo',
+		data: new FormData($(this)[0]),
+		cache: false,
+		contentType: false,
+		processData: false,
+		method: 'POST',
+		type: 'POST',
+        dataType: "json",
+		error:err=>{
+			console.log(err)
+		},
+		success:function(data){
+			console.log(data);
+            id = data[0].id;            
+            nombre = data[0].nombre;
+            precio = data[0].precio;
+            tipo = data[0].tipo;
+            detalles = data[0].detalles;
+
+            if(opcion == 1){tablaPlatillos.row.add([id,nombre,precio,tipo,detalles]).draw();}
+            else{tablaPlatillos.row(fila).data([id,nombre,precio,tipo,detalles]).draw();}
+		}
+	})
+    $("#modalCRUD").modal("hide"); 
+})
+
 });

@@ -54,7 +54,7 @@
       <li class="nav-item active">
         <a class="nav-link" href="index.php">
           <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Control de usuarios</span></a>
+          <span>Control de clientes</span></a>
       </li>
 
       <!-- Divider -->
@@ -74,6 +74,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="buttons.php">Reservaciones</a>
+            <a class="collapse-item" href="GestionPlatillos.php">Platillos</a>
             <a class="collapse-item" href="cards.php">Mesas</a>
           </div>
         </div>

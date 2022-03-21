@@ -2,23 +2,25 @@
 
 <!--INICIO del cont principal-->
 <div class="container">
-    <h1>Control de clientes</h1>
-    
-    
-    
- <?php
+    <h1>Gestion de Platillos</h1>
+
+
+
+<?php
     include_once './bd/conexion.php';
     $db = $conn;
 
-    $sql = "SELECT id, nombre, email, password, tipo FROM usuario WHERE tipo = 2";
+    $sql = "SELECT id, nombre, precio, tipo, detalles FROM platillos";
     $result = $db->query($sql);
-?>
 
+    $data = $result;
+    
+?>
 
 <div class="container">
         <div class="row">
             <div class="col-lg-12">            
-            <button id="btnNuevo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>    
+            <button id="btnNuevoPlatillo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>    
             </div>    
         </div>    
     </div>    
@@ -27,27 +29,27 @@
         <div class="row">
                 <div class="col-lg-12">
                     <div class="table-responsive">        
-                        <table id="tablaPersonas" class="table table-striped table-bordered table-condensed" style="width:100%">
+                        <table id="tablaPlatillos" class="table table-striped table-bordered table-condensed" style="width:100%">
                         <thead class="text-center">
                             <tr>
                                 <th>Id</th>
                                 <th>Nombre</th>
-                                <th>Email</th>                                
-                                <th>Password</th>  
-                                <th>Tipo</th>
+                                <th>Precio</th>                                
+                                <th>Tipo</th>  
+                                <th>Detalles</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php                            
-                            foreach($result as $row) {                                                        
+                            foreach($data as $dat) {                                                        
                             ?>
                             <tr>
-                                <td><?php echo $row['id'] ?></td>
-                                <td><?php echo $row['nombre'] ?></td>
-                                <td><?php echo $row['email'] ?></td>
-                                <td><?php echo $row['password'] ?></td>  
-                                <td><?php echo $row['tipo'] ?></td>  
+                                <td><?php echo $dat['id'] ?></td>
+                                <td><?php echo $dat['nombre'] ?></td>
+                                <td><?php echo $dat['precio'] ?></td>
+                                <td><?php echo $dat['tipo'] ?></td>  
+                                <td><?php echo $dat['detalles'] ?></td>  
                                 <td></td>
                             </tr>
                             <?php
@@ -58,9 +60,9 @@
                     </div>
                 </div>
         </div>  
-    </div>    
-      
-<!--Modal para CRUD-->
+    </div> 
+    
+    <!--Modal para CRUD-->
 <div class="modal fade" id="modalCRUD" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -69,20 +71,24 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form id="formPersonas">    
+        <form id="formPlatillos">    
             <div class="modal-body">
                 <div class="form-group">
                     <label for="nombre" class="col-form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre">
                 </div>
                 <div class="form-group">
-                    <label for="email" class="col-form-label">Email:</label>
-                    <input type="text" class="form-control" id="email">
+                    <label for="precio" class="col-form-label">Precio:</label>
+                    <input type="number" class="form-control" id="precio" name="precio">
                 </div>                
                 <div class="form-group">
-                    <label for="password" class="col-form-label">Password:</label>
-                    <input type="text" class="form-control" id="password">
-                </div>            
+                    <label for="tipo" class="col-form-label">Tipo:</label>
+                    <input type="number" class="form-control" id="tipo" name="tipo">
+                </div> 
+                <div class="form-group">
+                    <label for="detalles" class="col-form-label">Detalles:</label><br><br>
+                    <textarea name="detalles" rows="2" cols="40"></textarea>
+                </div>           
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancelar</button>
@@ -92,9 +98,8 @@
         </div>
     </div>
 </div>  
-      
-    
-    
 </div>
 <!--FIN del cont principal-->
+      
 <?php require_once "vistas/parte_inferior.php"?>
+
