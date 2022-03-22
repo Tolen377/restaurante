@@ -10,7 +10,7 @@
     include_once './bd/conexion.php';
     $db = $conn;
 
-    $sql = "SELECT id, nombre, precio, tipo, detalles FROM platillos";
+    $sql = "SELECT id, nombre, precio, tipo, detalles,imagen FROM platillos";
     $result = $db->query($sql);
 
     $data = $result;
@@ -37,7 +37,9 @@
                                 <th>Precio</th>                                
                                 <th>Tipo</th>  
                                 <th>Detalles</th>
+                                <th>Imagen</th>
                                 <th>Acciones</th>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -47,9 +49,10 @@
                             <tr>
                                 <td><?php echo $dat['id'] ?></td>
                                 <td><?php echo $dat['nombre'] ?></td>
-                                <td><?php echo $dat['precio'] ?></td>
+                                <td><?php echo $dat['precio']." $" ?></td>
                                 <td><?php echo $dat['tipo'] ?></td>  
-                                <td><?php echo $dat['detalles'] ?></td>  
+                                <td><?php echo $dat['detalles'] ?></td>
+                                <td><img height="170px" width="250px" src="data:image/jpg;base64,<?php echo base64_encode($dat['imagen']);?>"></td>  
                                 <td></td>
                             </tr>
                             <?php
@@ -75,19 +78,23 @@
             <div class="modal-body">
                 <div class="form-group">
                     <label for="nombre" class="col-form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
                 </div>
                 <div class="form-group">
                     <label for="precio" class="col-form-label">Precio:</label>
-                    <input type="number" class="form-control" id="precio" name="precio">
+                    <input type="number" class="form-control" id="precio" name="precio" required>
                 </div>                
                 <div class="form-group">
                     <label for="tipo" class="col-form-label">Tipo:</label>
-                    <input type="number" class="form-control" id="tipo" name="tipo">
+                    <input type="number" class="form-control" id="tipo" name="tipo" required>
                 </div> 
                 <div class="form-group">
                     <label for="detalles" class="col-form-label">Detalles:</label><br><br>
-                    <textarea name="detalles" rows="2" cols="40"></textarea>
+                    <textarea id ="detalles" name="detalles" rows="2" cols="40" required></textarea>
+                </div>
+                <div class="form-group" id="divImg">
+                    <label for="imagen" class="col-form-label" id="imgLabel">Imagen:</label>
+                    <input type="file" class="form-control form-control-lg" id="imagen" name="imagen" required>
                 </div>           
             </div>
             <div class="modal-footer">
