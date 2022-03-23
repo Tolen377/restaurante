@@ -16,17 +16,17 @@
 	        <div class="col-12 col-sm-6 col-md-4">
 	            <p class="text-center"><i class="fas fa-shipping-fast fa-5x"></i></p>
 	            <h5 class="text-center text-uppercase poppins-regular font-weight-bold">Envíos a domicilio</h5>
-	            <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione ad possimus modi repellendus? Expedita, vitae rerum at aliquam eligendi soluta veniam ut dolor facere fugiat quod, maxime ad accusamus quisquam.</p>
+	            <p class="text-center">En desarrollo.</p>
 	        </div>
 	        <div class="col-12 col-sm-6 col-md-4">
 	            <p class="text-center"><i class="fas fa-utensils fa-5x"></i></p>
 	            <h5 class="text-center text-uppercase poppins-regular font-weight-bold">Ventas al por mayor</h5>
-	            <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione ad possimus modi repellendus? Expedita, vitae rerum at aliquam eligendi soluta veniam ut dolor facere fugiat quod, maxime ad accusamus quisquam.</p>
+	            <p class="text-center">Contamos con ventas al por mayor en diversos tipos de platillos, actualmente solo pedidos de manera presencial.</p>
 	        </div>
 	        <div class="col-12 col-sm-6 col-md-4">
 	            <p class="text-center"><i class="fas fa-store-alt fa-5x"></i></p>
-	            <h5 class="text-center text-uppercase poppins-regular font-weight-bold">Reservaciones de local</h5>
-	            <p class="text-center">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione ad possimus modi repellendus? Expedita, vitae rerum at aliquam eligendi soluta veniam ut dolor facere fugiat quod, maxime ad accusamus quisquam.</p>
+	            <h5 class="text-center text-uppercase poppins-regular font-weight-bold">Reservaciones</h5>
+	            <p class="text-center">Contamos con un sistema de reservaciones en línea fácil de utilizar únicamente te tienes que registrar.</p>
 	        </div>
 	    </div>
 	</div>
@@ -38,41 +38,35 @@
 	    <div class="container-cards full-box">
 
 	        <div class="card shadow-1-strong">
-	            <img class="card-img-top" src="./assets/platillos/platillo.jpg" alt="nombre_platillo">
+	            <img class="card-img-top" src="./assets/platillos/rata.jpg" alt="nombre_platillo">
 	            <div class="card-body text-center">
-	                <h5 class="card-title font-weight-bold">Nombre o titulo del platillo</h5>
+	                <h5 class="card-title font-weight-bold">Ratatouille</h5>
 	                <p class="card-text lead"><span class="badge bg-secondary">$25.00 USD</span></p>
 	            </div>
 	            <div class="card-body text-center">
-	                <button type="button" class="btn btn-success btn-sm"><i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Agregar</button>
-	                &nbsp; &nbsp;
-	                <a href="details.html" class="btn btn-info btn-sm"><i class="fas fa-utensils fa-fw"></i> &nbsp; Detalles</a>
+	                <p>La ratatouille, o en occitano ratatolha es una preparación típica de la cocina francesa que consiste en un estofado de diferentes hortalizas típicas del sur de Francia.</p>
 	            </div>
 	        </div>
 
 	        <div class="card shadow-1-strong">
-	            <img class="card-img-top" src="./assets/img/img_not_found.jpg" alt="nombre_platillo">
+	            <img class="card-img-top" src="./assets/platillos/tacolgando.jpg" alt="nombre_platillo">
 	            <div class="card-body text-center">
-	                <h5 class="card-title font-weight-bold">Nombre o titulo del platillo</h5>
+	                <h5 class="card-title font-weight-bold">Tacos al pastor</h5>
 	                <p class="card-text lead"><span class="badge bg-secondary">$25.00 USD</span></p>
 	            </div>
 	            <div class="card-body text-center">
-	                <button type="button" class="btn btn-success btn-sm"><i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Agregar</button>
-	                &nbsp; &nbsp;
-	                <a href="details.html" class="btn btn-info btn-sm"><i class="fas fa-utensils fa-fw"></i> &nbsp; Detalles</a>
+	                <p>Los tacos al pastor o de trompo​ son la variedad de tacos más populares en la mayor parte de México.​​ En julio de 2019 fueron elegidos como la mejor comida del mundo por el sitio de guía gastronómica Taste Atlas.</p>
 	            </div>
 	        </div>
 
 	        <div class="card shadow-1-strong">
-	            <img class="card-img-top" src="./assets/platillos/platillo.jpg" alt="nombre_platillo">
+	            <img class="card-img-top" src="./assets/platillos/lasa.jpg" alt="nombre_platillo">
 	            <div class="card-body text-center">
-	                <h5 class="card-title font-weight-bold">Nombre o titulo del platillo</h5>
+	                <h5 class="card-title font-weight-bold">Lasaña boloñesa</h5>
 	                <p class="card-text lead"><span class="badge bg-secondary">$25.00 USD</span></p>
 	            </div>
 	            <div class="card-body text-center">
-	                <button type="button" class="btn btn-success btn-sm"><i class="fas fa-shopping-bag fa-fw"></i> &nbsp; Agregar</button>
-	                &nbsp; &nbsp;
-	                <a href="details.html" class="btn btn-info btn-sm"><i class="fas fa-utensils fa-fw"></i> &nbsp; Detalles</a>
+	                <p>La tradicional lasaña con carne boloñesa y salsa bechamel está llena de sabor, con deliciosas capas de carne y salsa que entre delgadas láminas de pasta y cubierta con queso que la hacen simplemente exquisita.</p>
 	            </div>
 	        </div>
 
@@ -80,7 +74,6 @@
 	    <br>
 	    <p class="text-center"><a href="menu.php" class="btn btn-primary"><i class="fas fa-hamburger fa-fw"></i> &nbsp; Ir al menu</a></p>
 	</div>
-
 	<hr>
 
 	<div class="container container-web-page">

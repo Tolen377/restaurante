@@ -60,10 +60,7 @@
 	                <p class="text-center full-box">¿No tienes cuenta? <a href="registration.php">Regístrate aquí</a></p>
 	            </div>
 	        </div>
-	        <a href="bag.php" class="header-button full-box text-center" data-mdb-toggle="tooltip" data-mdb-placement="bottom" title="Carrito" >
-	            <i class="fas fa-shopping-bag"></i>
-	            <span class="badge bg-warning rounded-pill bag-count" >2</span>
-	        </a>
+	       
 	    </div>
 	</header>
 
