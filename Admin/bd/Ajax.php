@@ -35,4 +35,23 @@
             print json_encode($editarPlatillo, JSON_UNESCAPED_UNICODE);
     }
 
+   
+    if($action == 'altaMesa'){
+        $altaMesa = $crud->altaMesa();
+        if($altaMesa)
+            print json_encode($altaMesa, JSON_UNESCAPED_UNICODE);
+    }
 
+    if($action == 'editarMesa'){
+        $id = $_GET['id'];
+
+        $editarMesa = $crud->editarMesa($id);
+        if ($editarMesa)
+            print json_encode($editarMesa, JSON_UNESCAPED_UNICODE);
+    }
+
+    if($action == 'borrarMesa'){
+        $borrarMesa = $crud->borrarMesa();
+        if ($borrarMesa)
+            print json_encode($borrarMesa, JSON_UNESCAPED_UNICODE);
+    }

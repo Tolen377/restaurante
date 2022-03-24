@@ -75,7 +75,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="buttons.php">Reservaciones</a>
             <a class="collapse-item" href="GestionPlatillos.php">Platillos</a>
-            <a class="collapse-item" href="cards.php">Mesas</a>
+            <a class="collapse-item" href="GestionMesas.php">Mesas</a>
           </div>
         </div>
       </li>

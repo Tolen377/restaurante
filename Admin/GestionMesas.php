@@ -1,8 +1,7 @@
 <?php require_once "vistas/parte_superior.php"?>
-
 <!--INICIO del cont principal-->
 <div class="container">
-    <h1>Gestion de Platillos</h1>
+    <h1>Gestion de Mesas</h1>
 
 
 
@@ -10,7 +9,7 @@
     include_once './bd/conexion.php';
     $db = $conn;
 
-    $sql = "SELECT id, nombre, precio, tipo, detalles,imagen FROM platillos";
+    $sql = "SELECT * FROM mesa";
     $result = $db->query($sql);
 
     $data = $result;
@@ -19,7 +18,7 @@
 <div class="container">
         <div class="row">
             <div class="col-lg-12">            
-            <button id="btnNuevoPlatillo" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>    
+            <button id="btnNuevaMesa" type="button" class="btn btn-success" data-toggle="modal">Nuevo</button>    
             </div>    
         </div>    
     </div>    
@@ -28,17 +27,14 @@
         <div class="row">
                 <div class="col-lg-12">
                     <div class="table-responsive">        
-                        <table id="tablaPlatillos" class="table table-striped table-bordered table-condensed" style="width:100%">
+                        <table id="tablaMesa" class="table table-striped table-bordered table-condensed" style="width:100%">
                         <thead class="text-center">
                             <tr>
                                 <th>Id</th>
-                                <th>Nombre</th>
-                                <th>Precio</th>                                
-                                <th>Tipo</th>  
-                                <th>Detalles</th>
-                                <th>Imagen</th>
-                                <th>Acciones</th>
-                                
+                                <th>Capacidad</th>
+                                <th>Disponibilidad</th>
+                                <th>Acciones</th> 
+
                             </tr>
                         </thead>
                         <tbody>
@@ -46,12 +42,9 @@
                             foreach($data as $dat) {                                                        
                             ?>
                             <tr>
-                                <td><?php echo $dat['id'] ?></td>
-                                <td><?php echo $dat['nombre'] ?></td>
-                                <td><?php echo $dat['precio']." $" ?></td>
-                                <td><?php echo $dat['tipo'] ?></td>  
-                                <td><?php echo $dat['detalles'] ?></td>
-                                <td><img height="170px" width="250px" src="data:image/jpg;base64,<?php echo base64_encode($dat['imagen']);?>"></td>  
+                                <td><?php echo $dat['numeroMesa'] ?></td>
+                                <td><?php echo $dat['cantidadPersonas'] ?></td>
+                                <td><?php echo $dat['disponibilidad'] ?></td>
                                 <td></td>
                             </tr>
                             <?php
@@ -73,27 +66,16 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
                 </button>
             </div>
-        <form id="formPlatillos">    
+        <form id="formMesa">    
             <div class="modal-body">
+                
                 <div class="form-group">
-                    <label for="nombre" class="col-form-label">Nombre:</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" required>
-                </div>
-                <div class="form-group">
-                    <label for="precio" class="col-form-label">Precio:</label>
-                    <input type="number" class="form-control" id="precio" name="precio" required>
+                    <label for="capacidad" class="col-form-label">Capacidad:</label>
+                    <input type="number" class="form-control" id="capacidad" name="capacidad" required>
                 </div>                
                 <div class="form-group">
-                    <label for="tipo" class="col-form-label">Tipo:</label>
-                    <input type="number" class="form-control" id="tipo" name="tipo" required>
-                </div> 
-                <div class="form-group">
-                    <label for="detalles" class="col-form-label">Detalles:</label><br><br>
-                    <textarea id ="detalles" name="detalles" rows="2" cols="40" required></textarea>
-                </div>
-                <div class="form-group" id="divImg">
-                    <label for="imagen" class="col-form-label" id="imgLabel">Imagen:</label>
-                    <input type="file" class="form-control form-control-lg" id="imagen" name="imagen" required>
+                    <label for="disponibilidad" class="col-form-label">Disponibilidad:</label>
+                    <input type="number" class="form-control" id="disponibilidad" name="disponibilidad" required>
                 </div>           
             </div>
             <div class="modal-footer">
@@ -106,6 +88,7 @@
 </div>  
 </div>
 <!--FIN del cont principal-->
-      
 <?php require_once "vistas/parte_inferior.php"?>
+
+
 

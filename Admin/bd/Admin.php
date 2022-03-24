@@ -62,4 +62,52 @@ Class Action {
         }
         return $response; 
     }
+
+    function altaMesa() {
+        extract($_POST);
+        $id = uniqid();
+        $sql = "INSERT INTO mesa VALUES ('$id','$capacidad','$disponibilidad');";		
+        $resultado = $this->db->query($sql);
+
+        $sql = "SELECT * FROM mesa WHERE numeroMesa = '$id';";
+        $resultado = $this->db->query($sql);
+        
+        $response = array();
+        while($row = mysqli_fetch_assoc($resultado)){
+           $response[] = array(
+              "id" => $row['numeroMesa'],
+              "capacidad" => $row['cantidadPersonas'],
+              "disponibilidad" => $row['disponibilidad']
+           );
+        }
+        return $response; 
+    }
+
+    function editarMesa($id) {
+        extract($_POST);
+        $sql = "UPDATE mesa SET cantidadPersonas='$capacidad', disponibilidad='$disponibilidad' WHERE numeroMesa='$id';";		
+        $resultado = $this->db->query($sql);        
+        
+        $sql = "SELECT * FROM mesa WHERE numeroMesa = '$id'";
+        $resultado = $this->db->query($sql);
+
+        $response = array();
+        while($row = mysqli_fetch_assoc($resultado)){
+           $response[] = array(
+            "id" => $row['numeroMesa'],
+            "capacidad" => $row['cantidadPersonas'],
+            "disponibilidad" => $row['disponibilidad']
+           );
+        }
+        return $response;
+    }
+
+    function borrarMesa() {
+        extract($_POST);
+        $sql = "DELETE FROM mesa WHERE numeroMesa='$id';";		
+        $resultado = $this->db->query($sql);
+        return $resultado;
+    }
 }
+
+
